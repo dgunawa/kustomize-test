@@ -1,0 +1,10 @@
+- source: 
+    name: myapp
+    kind: Service
+    version: v1
+  targets:
+  - select: 
+      kind: Pod
+      name: myapp
+    fieldPaths:
+    - spec.containers.[name=myapp].args.1
