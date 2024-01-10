@@ -13,6 +13,7 @@ configMapGenerator:
   - name: local
     literals:
       - image-ver=docker.io/alpine:dev
+      - image-tag=dev
 
 replacements:
 - source: 
@@ -25,3 +26,13 @@ replacements:
       name: example
     fieldPaths:
     - spec.template.spec.containers.[name=example].image
+- source: 
+    kind: ConfigMap
+    name: local
+    fieldPath: data.image-tag
+  targets:
+  - select: 
+      kind: Deployment
+      name: example
+    fieldPaths:
+    - spec.template.spec.containers.[name=foobar].image

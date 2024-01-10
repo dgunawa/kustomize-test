@@ -17,3 +17,13 @@ spec:
               value: update-via-replacement
             - name: USER_PASSWORD
               value: update-via-replacement
+        - name: foobar
+          image: docker.io/alpine:image-tag
+          command:
+            - sleep
+            - inf
+          env:
+            - name: USER_NAME
+              value: update-via-replacement
+            - name: USER_PASSWORD
+              value: update-via-replacement
